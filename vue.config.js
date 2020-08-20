@@ -1,17 +1,35 @@
-const path = require('path')
-const myTheme = path.resolve(__dirname, 'src/plugins/Vant/theme.less')
+const path = require("path");
+const theme = path.resolve(__dirname, "src/plugins/Vant/theme.less");
+const autoprefixer = require('autoprefixer')
+const pxtorem = require('postcss-pxtorem')
 module.exports = {
   css: {
     loaderOptions: {
       less: {
-        // 若使用 less-loader@5，请移除 lessOptions 这一级，直接配置选项。
-        lessOptions: {
-          modifyVars: {
-            // 或者可以通过 less 文件覆盖（文件路径为绝对路径）
-            hack: `true; @import "${myTheme}";`
-          }
+        modifyVars: {
+          hack: `true; @import "${theme}";`
         }
+      },
+      postcss: {
+        plugins: [
+          autoprefixer({
+            overrideBrowserslist: [
+              'Android 4.1',
+              'iOS 7.1',
+              'Chrome > 31',
+              'ff > 31',
+              'ie >= 8'
+            ]
+          }),
+          pxtorem({
+            rootValue: 37.5,
+            propList: ['*']
+          })
+        ]
       }
     }
-  }
+  },
 }
+
+
+

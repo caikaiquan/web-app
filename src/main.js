@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 import '@/plugins/Vant/index'
+import 'amfe-flexible/index.js'
 Vue.config.productionTip = false
 
 new Vue({

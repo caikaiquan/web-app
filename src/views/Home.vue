@@ -2,7 +2,8 @@
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <van-button type="primary">主要按钮</van-button>
+    <van-button type="primary" block>主要按钮</van-button>
+    <div class="demo">123</div>
   </div>
 </template>
 
@@ -15,3 +16,8 @@ export default {
   }
 }
 </script>
+<style lang="less">
+.demo{
+  height: 50px;
+}
+</style>
