@@ -1,5 +1,5 @@
-const path = require("path");
-const theme = path.resolve(__dirname, "src/plugins/Vant/theme.less");
+const path = require('path')
+const theme = path.resolve(__dirname, 'src/plugins/Vant/theme.less')
 const autoprefixer = require('autoprefixer')
 const pxtorem = require('postcss-pxtorem')
 module.exports = {
@@ -28,8 +28,5 @@ module.exports = {
         ]
       }
     }
-  },
+  }
 }
-
-
-
