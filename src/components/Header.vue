@@ -11,7 +11,7 @@
         <span>{{title}}</span>
       </slot>
     </div>
-    <div class="head-right">
+    <div class="head-right"  @click="handleClickRight">
       <slot>
         <span v-if="rightText">{{rightText}}</span>
       </slot>
@@ -37,9 +37,13 @@ export default {
     rightText: {
       type: String,
       default: ''
+    },
+    clickFun: {
+      type: Function
     }
   },
   methods: {
+    // 点击左侧返回或是自定义事件
     handleClickBack () {
       if (this.goBack) {
         this.goBack()
@@ -47,13 +51,22 @@ export default {
         return
       }
       console.log('这里执行组件本身的返回3333')
+    },
+    // 点击右侧自定义事件
+    handleClickRight () {
+      if (this.clickFun) {
+        console.log('父组件传递过来 的方法')
+        this.clickFun()
+        return
+      }
+      console.log('点击了右侧的事件')
     }
   }
 }
 </script>
 
 <style scoped lang='less'>
-@mainColor: #409eff;
+@mainColor: #fb503f;
 header {
   background: @mainColor;
   height: 50px;
@@ -68,19 +81,22 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 16px;
     i {
       font-size: 28px;
     }
   }
   .head-content {
     line-height: 50px;
-    font-size: 30px;
+    font-size: 20px;
+    text-align: center;
   }
   .head-right {
     position: absolute;
     top: 0;
     right: 20px;
     line-height: 50px;
+    font-size: 16px;
   }
 }
 </style>

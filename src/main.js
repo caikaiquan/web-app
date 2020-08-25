@@ -6,6 +6,7 @@ import './registerServiceWorker'
 import '@/plugins/Vant/index'
 import '@/plugins/common.js'
 import 'amfe-flexible/index.js'
+import '@/assets/css/common.css'
 Vue.config.productionTip = false
 
 new Vue({

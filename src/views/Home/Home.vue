@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <my-header :title="title" :backText="backText" :rightText="rightText" :goBack="goBack"></my-header>
+    <v-header :title="title" :backText="backText" :rightText="rightText" :goBack="goBack"></v-header>
   </div>
 </template>
 
